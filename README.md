@@ -71,3 +71,18 @@ MMRMMRMRRM
 1 3 N
 5 1 E
 ```
+
+## Assumptions
+
+* The plateau lower-left coordinate is always `0 0`.
+* The plateau boundaries are inclusive.
+* The plateau upper-right coordinates cannot be negative.
+* A plateau with upper-right coordinates of `0 0` is considered invalid.
+* A rover's starting position must be within the plateau boundaries.
+* Rover instructions are required and cannot be empty.
+* If invalid input is provided, the application displays an error message and exits cleanly.
+* If a rover instruction would move the rover outside the plateau boundaries, this is treated as invalid movement and shown as an error to the user.
+* Rovers are processed one at a time.
+* After each rover is processed, the user can choose whether to enter another rover.
+* Only `Y` continues to the next rover; any other response exits the application.
+* Rover collision detection is not implemented, as it is not specified in the requirements.
