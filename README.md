@@ -47,7 +47,7 @@ Where:
 
 ### 2. The rover's movement instructions
 
-The rover's movement instruction are made up of one or more of the following commands:
+The rover's movement instructions are made up of one or more of the following commands:
 
 | Command | Description                                          |
 | ------- | ---------------------------------------------------- |
@@ -86,3 +86,10 @@ MMRMMRMRRM
 * After each rover is processed, the user can choose whether to enter another rover.
 * Only `Y` continues to the next rover; any other response exits the application.
 * Rover collision detection is not implemented, as it is not specified in the requirements.
+
+## Tests
+
+The project includes:
+* Unit tests for `Plateau`, `Position`, and `Rover`.
+* Integration tests for the supplied Mars Rover sample input.
+* An end-to-end test that runs the console application with user input.

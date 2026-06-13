@@ -12,7 +12,7 @@ class Rover:
         self.plateau = plateau
 
     def execute_instructions(self, instructions: str):
-        for instruction in instructions.upper():
+        for instruction in instructions:
             match instruction:
                 case Instruction.LEFT.value:
                     self.turn_left()
@@ -25,7 +25,6 @@ class Rover:
 
 
     def turn_left(self):
-        # print("Turning left...")
         # rover spin 90 degrees left without moving
         match self.position.direction:
             case Direction.NORTH:
@@ -40,7 +39,6 @@ class Rover:
                 raise ValueError("Invalid direction provided.")
 
     def turn_right(self):
-        # print("Turning right...")
         # rover spin 90 degrees right without moving
         match self.position.direction:
             case Direction.NORTH:
@@ -55,7 +53,6 @@ class Rover:
                 raise ValueError("Invalid direction provided.")
 
     def move_forward(self):
-        # print("Moving forward...")
         # move forward one grid point and maintain the same heading (i.e. direction)
         new_x = self.position.x
         new_y = self.position.y
