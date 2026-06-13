@@ -6,25 +6,54 @@ This project is a Python solution for the Mars Rover technical challenge.
 
 NASA has deployed a squad of robotic rovers on a rectangular plateau on Mars.
 
+The plateau is represented as a grid. The lower-left coordinate is assumed to be `0 0`, and the upper-right coordinate is provided as input.
+
 Each rover has:
 
-* An `x` and `y` coordinate
+* An `x` coordinate
+* A `y` coordinate
 * A direction it is facing: `N`, `E`, `S`, or `W`
-* A list of movement instructions
+* A set of movement instructions
 
-The plateau starts at `0 0`, and the first input line defines the upper-right boundary.
+Rovers are processed sequentially, meaning the next rover does not start moving until the previous rover has finished all of its instructions.
 
-Rovers are moved sequentially. This means the second rover only starts moving after the first rover has completed all of its instructions.
+## Input Format
 
-## Instructions
+The first line of input contains the upper-right coordinates of the plateau.
 
-Each rover can receive the following commands:
+The lower-left coordinates are assumed to be:
 
-| Command | Description                 |
-| ------- | --------------------------- |
-| `L`     | Turn left 90 degrees        |
-| `R`     | Turn right 90 degrees       |
-| `M`     | Move forward one grid point |
+```text
+0 0
+```
+
+The remaining input contains information about each rover that has been deployed.
+
+Each rover has two lines of input:
+
+### 1. The rover's starting position
+
+The rover's starting position is made up of:
+
+```text
+x y direction
+```
+
+Where:
+
+* `x` is the rover's x-coordinate
+* `y` is the rover's y-coordinate
+* `direction` is one of `N`, `E`, `S`, or `W`
+
+### 2. The rover's movement instructions
+
+The rover's movement instruction are made up of one or more of the following commands:
+
+| Command | Description                                          |
+| ------- | ---------------------------------------------------- |
+| `L`     | Spin left 90 degrees without moving                  |
+| `R`     | Spin right 90 degrees without moving                 |
+| `M`     | Move forward one grid point in the current direction |
 
 ## Example Input
 
