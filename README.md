@@ -17,6 +17,63 @@ Each rover has:
 
 Rovers are processed sequentially, meaning the next rover does not start moving until the previous rover has finished all of its instructions.
 
+## Running the Application
+
+Clone the repository:
+
+```bash
+git clone https://github.com/akikohiura/mars-rover.git
+cd mars-rover
+```
+
+Run the application:
+
+```bash
+python src/main.py
+```
+
+The application will prompt for:
+
+1. Plateau upper-right coordinates
+2. Rover starting position
+3. Rover instructions
+4. Whether another rover should be processed
+
+Example session:
+
+```text
+Enter plateau upper-right coordinates, e.g. 5 5:
+5 5
+
+Plateau created.
+
+Enter rover 1 details.
+1. Rover starting position, e.g. 1 2 N:
+1 2 N
+
+2. Rover instructions, e.g. LMLMLMLMM:
+LMLMLMLMM
+
+Rover 1 final position: 1 3 N
+
+Do you wish to continue? Y or N:
+Y
+
+Enter rover 2 details.
+1. Rover starting position, e.g. 3 3 E:
+3 3 E
+
+2. Rover instructions, e.g. MMRMMRMRRM:
+MMRMMRMRRM
+
+Rover 2 final position: 5 1 E
+
+Do you wish to continue? Y or N:
+N
+
+Exiting...
+```
+
 ## Input Format
 
 The first line of input contains the upper-right coordinates of the plateau.
@@ -29,11 +86,9 @@ The lower-left coordinates are assumed to be:
 
 The remaining input contains information about each rover that has been deployed.
 
-Each rover has two lines of input:
+Each rover has two lines of input.
 
-### 1. The rover's starting position
-
-The rover's starting position is made up of:
+### 1. Rover Starting Position
 
 ```text
 x y direction
@@ -45,7 +100,7 @@ Where:
 * `y` is the rover's y-coordinate
 * `direction` is one of `N`, `E`, `S`, or `W`
 
-### 2. The rover's movement instructions
+### 2. Rover Instructions
 
 The rover's movement instructions are made up of one or more of the following commands:
 
@@ -81,7 +136,7 @@ MMRMMRMRRM
 * A rover's starting position must be within the plateau boundaries.
 * Rover instructions are required and cannot be empty.
 * If invalid input is provided, the application displays an error message and exits cleanly.
-* If a rover instruction would move the rover outside the plateau boundaries, this is treated as invalid movement and shown as an error to the user.
+* If a rover instruction would move the rover outside the plateau boundaries, the move is rejected and an error is displayed.
 * Rovers are processed one at a time.
 * After each rover is processed, the user can choose whether to enter another rover.
 * Only `Y` continues to the next rover; any other response exits the application.
@@ -90,6 +145,13 @@ MMRMMRMRRM
 ## Tests
 
 The project includes:
-* Unit tests for `Plateau`, `Position`, and `Rover`.
-* Integration tests for the supplied Mars Rover sample input.
-* An end-to-end test that runs the console application with user input.
+
+* Unit tests for `Plateau`, `Position`, and `Rover`
+* Integration tests covering the supplied Mars Rover example
+* An end-to-end test that executes the console application using user input
+
+Run all tests:
+
+```bash
+python -m unittest discover
+```
