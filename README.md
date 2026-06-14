@@ -153,5 +153,8 @@ The project includes:
 Run all tests:
 
 ```bash
-python -m unittest discover
+set PYTHONPATH=src
+python -m unittest discover -s tests\unit
+python -m unittest discover -s tests\integration
+python -m unittest discover -s tests\end_to_end
 ```

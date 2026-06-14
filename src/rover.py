@@ -65,7 +65,8 @@ class Rover:
                 new_y -= 1
             case Direction.WEST:
                 new_x -= 1
-
+            case _:
+                raise ValueError("Invalid direction provided.")
         if not self.plateau.is_in_plateau(new_x, new_y):
             raise ValueError(f"Rover cannot move one step to the {self.position.direction.value} because it will cause the rover to be outside the plateau.")
 

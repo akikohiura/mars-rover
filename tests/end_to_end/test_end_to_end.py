@@ -22,6 +22,7 @@ class TestEndToEnd(unittest.TestCase):
             capture_output=True
         )
 
+        self.assertEqual("", result.stderr)
         self.assertEqual(0, result.returncode)
         self.assertIn("Rover 1 final position: 1 3 N", result.stdout)
         self.assertIn("Rover 2 final position: 5 1 E", result.stdout)

@@ -1,10 +1,11 @@
+from dataclasses import dataclass
 from direction import Direction
 
+@dataclass # the rover position changes, so this should not be frozen
 class Position:
-    def __init__(self, x: int, y: int, direction: Direction):
-        self.x = x
-        self.y = y
-        self.direction = direction
+    x: int
+    y: int
+    direction: Direction
 
     def __str__(self) -> str:
         return f"{self.x} {self.y} {self.direction.value}"
